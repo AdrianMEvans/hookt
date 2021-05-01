@@ -3,10 +3,12 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
-
+const Stack = createStackNavigator();
 export default function App() {
   return (
-    <NavigationContainer styles={styles.navigationContainer}>{/* Rest of your app code */}</NavigationContainer>
+    <NavigationContainer styles={styles.navigationContainer}>
+
+    </NavigationContainer>
   );
 }
 
