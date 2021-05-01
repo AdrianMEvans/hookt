@@ -10,7 +10,6 @@ export class Register extends Component {
             password: '',
             name: ''
         }
-
         this.onSignUp = this.onSignUp.bind(this)
     }
 
@@ -47,7 +46,6 @@ export class Register extends Component {
                     secureTextEntry={true}
                     onChangeText={(password) => this.setState({ password })}
                 />
-
                 <Button
                     onPress={() => this.onSignUp()}
                     title="Sign Up"

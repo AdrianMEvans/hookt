@@ -1,9 +1,9 @@
 import React from 'react'
-import { Text, View, Button } from 'react-native'
+import { Text, View, Button, StyleSheet } from 'react-native'
 
 export default function Landing({ navigation }) {
     return (
-        <View style={{ flex: 1, justifyContent: 'center' }}>
+        <View style={styles.landing}>
             <Button
                 title="Register"
                 onPress={() => navigation.navigate("Register")} />
@@ -13,3 +13,11 @@ export default function Landing({ navigation }) {
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    landing: {
+      flex: 1,
+    //   alignItems: "center",
+      justifyContent: "center",
+    },
+  });
