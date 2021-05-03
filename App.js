@@ -5,15 +5,14 @@ import { View, Text, Button, StyleSheet } from 'react-native'
 
 import * as firebase from 'firebase'
 
-
 const firebaseConfig = {
-  apiKey: "AIzaSyBktqiOWC1IeP-IuFjnQR_2Hvw6BvrrAS4",
-  authDomain: "hookt-app.firebaseapp.com",
-  projectId: "hookt-app",
-  storageBucket: "hookt-app.appspot.com",
-  messagingSenderId: "785873493026",
-  appId: "1:785873493026:web:957bdaca0eee302823be7b",
-  measurementId: "G-45DYE0PX9F"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 if (firebase.apps.length === 0) {
@@ -31,7 +30,7 @@ const Stack = createStackNavigator();
 
 export class App extends Component {
 
-  
+
   constructor(props) {
     super()
     this.state = {
@@ -57,7 +56,7 @@ export class App extends Component {
   render() {
     const onLogout = () => {
       firebase.auth().signOut();
-  }
+    }
     const { loggedIn, loaded } = this.state;
     if (!loaded) {
       return (
@@ -80,12 +79,12 @@ export class App extends Component {
     }
     return (
       <View style={styles.loading}>
-          <Text>User Logged In!!!</Text>
-          <Button 
+        <Text>User Logged In!!!</Text>
+        <Button
           title="Logout"
           onPress={() => onLogout()}
-          />
-        </View>
+        />
+      </View>
     )
   }
 }
@@ -93,7 +92,7 @@ export class App extends Component {
 const styles = StyleSheet.create({
   loading: {
     flex: 1,
-  //   alignItems: "center",
+    //   alignItems: "center",
     justifyContent: "center",
   },
 });
