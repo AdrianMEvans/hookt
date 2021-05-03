@@ -5,7 +5,7 @@ export default function Landing({ navigation }) {
   return (
     <View style={{ height: '100%', alignItems: "center", justifyContent: "center" }}>
       <View style={styles.container}>
-        <Button
+        <Button 
           title="Register"
           onPress={() => navigation.navigate("Register")} />
         <Button

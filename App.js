@@ -1,18 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
 
 import * as firebase from 'firebase'
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
+  apiKey: "AIzaSyBktqiOWC1IeP-IuFjnQR_2Hvw6BvrrAS4",
+  authDomain: "hookt-app.firebaseapp.com",
+  projectId: "hookt-app",
+  storageBucket: "hookt-app.appspot.com",
+  messagingSenderId: "785873493026",
+  appId: "1:785873493026:web:957bdaca0eee302823be7b",
+  measurementId: "G-45DYE0PX9F"
 };
 
 if (firebase.apps.length === 0) {
@@ -78,22 +78,60 @@ export class App extends Component {
       );
     }
     return (
-      <View style={styles.loading}>
-        <Text>User Logged In!!!</Text>
-        <Button
-          title="Logout"
-          onPress={() => onLogout()}
-        />
+      <View style={{ height: '100%', alignItems: "center", justifyContent: "center" }}>
+        <View style={styles.container}>
+          <Text style={styles.label}>Name</Text>
+          <TextInput style={styles.textInput}
+            defaultValue="Type your name here"
+          />
+          <Text style={styles.label}>E-mail</Text>
+          <TextInput style={styles.textInput}
+            defaultValue="Type your E-mail here"
+          />
+          <Text style={styles.label}>E-mail</Text>
+          <TextInput style={styles.textInput}
+            defaultValue="Choose Password - 6 Characters"
+          />
+          <Button
+            title="Create Loylty Card"
+            onPress={() => onLogout()}
+          />
+          <Button
+            title="Logout"
+            onPress={() => onLogout()}
+          />
+        </View>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  loading: {
-    flex: 1,
-    //   alignItems: "center",
+  label: {
+    height: 20,
+    width: "80%",
+    margin: 10,
+    paddingLeft: 12,
+  },
+  textInput: {
+    height: 60,
+    width: "80%",
+    paddingLeft: 10,
+    borderRadius: 10,
+    borderBottomColor: '#ccc',
+    backgroundColor: '#eee',
+    borderBottomWidth: 1,
+    fontSize:   14
+  },
+  container: {
+    alignItems: "center",
     justifyContent: "center",
+    width: '80%',
+    backgroundColor: '#ccc',
+    borderRadius: 20,
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
   },
 });
 
