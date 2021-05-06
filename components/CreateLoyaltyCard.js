@@ -26,12 +26,12 @@ export default function CreateLoyaltyCard(props) {
   }
 
   return <View style={styles.container}>
-    <Text style={styles.label}>Luca</Text>
+    <Text style={styles.label}>Enter Your Name</Text>
     <TextInput style={styles.textInput}
       defaultValue="Type your name here"
       onChange={(e) => { setName(e.target.value) }}
     />
-    <Text style={styles.label}>E-mail</Text>
+    <Text style={styles.label}>Enter your E-mail</Text>
     <TextInput style={styles.textInput}
       defaultValue="Type your E-mail here"
       onChange={(e) => { setEmail(e.target.value) }}
