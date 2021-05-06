@@ -81,11 +81,11 @@ export class App extends Component {
       <View style={{ height: '100%', alignItems: "center", justifyContent: "center" }}>
         <CreateLoyaltyCard user={user}/>
         <Button
-          title="Create Loylty Card"
+          title="Create Loylty Card2"
           onPress={() => onLogout()}
         />
         <Button
-          title="Logout"
+          title="Logout2"
           onPress={() => onLogout()}
         />
       </View>
