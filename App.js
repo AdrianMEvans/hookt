@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
-
-import * as firebase from 'firebase'
+import CreateLoyaltyCard from "./components/CreateLoyaltyCard";
+import firebase from 'firebase'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBktqiOWC1IeP-IuFjnQR_2Hvw6BvrrAS4",
@@ -15,9 +15,9 @@ const firebaseConfig = {
   measurementId: "G-45DYE0PX9F"
 };
 
-if (firebase.apps.length === 0) {
+// if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig)
-}
+// }
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -30,11 +30,11 @@ const Stack = createStackNavigator();
 
 export class App extends Component {
 
-
   constructor(props) {
     super()
     this.state = {
       loaded: false,
+      user: null
     }
   }
 
@@ -42,12 +42,12 @@ export class App extends Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (!user) {
         this.setState({
-          loggedIn: false,
+          user: null,
           loaded: true,
         })
       } else {
         this.setState({
-          loggedIn: true,
+          user: user,
           loaded: true,
         })
       }
@@ -57,7 +57,7 @@ export class App extends Component {
     const onLogout = () => {
       firebase.auth().signOut();
     }
-    const { loggedIn, loaded } = this.state;
+    const { user, loaded } = this.state;
     if (!loaded) {
       return (
         <View style={styles.loading}>
@@ -66,7 +66,7 @@ export class App extends Component {
       )
     }
 
-    if (!loggedIn) {
+    if (!user) {
       return (
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Landing">
@@ -79,28 +79,15 @@ export class App extends Component {
     }
     return (
       <View style={{ height: '100%', alignItems: "center", justifyContent: "center" }}>
-        <View style={styles.container}>
-          <Text style={styles.label}>Name</Text>
-          <TextInput style={styles.textInput}
-            defaultValue="Type your name here"
-          />
-          <Text style={styles.label}>E-mail</Text>
-          <TextInput style={styles.textInput}
-            defaultValue="Type your E-mail here"
-          />
-          <Text style={styles.label}>E-mail</Text>
-          <TextInput style={styles.textInput}
-            defaultValue="Choose Password - 6 Characters"
-          />
-          <Button
-            title="Create Loylty Card"
-            onPress={() => onLogout()}
-          />
-          <Button
-            title="Logout"
-            onPress={() => onLogout()}
-          />
-        </View>
+        <CreateLoyaltyCard user={user}/>
+        <Button
+          title="Create Loylty Card"
+          onPress={() => onLogout()}
+        />
+        <Button
+          title="Logout"
+          onPress={() => onLogout()}
+        />
       </View>
     )
   }
@@ -121,7 +108,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ccc',
     backgroundColor: '#eee',
     borderBottomWidth: 1,
-    fontSize:   14
+    fontSize: 14
   },
   container: {
     alignItems: "center",
