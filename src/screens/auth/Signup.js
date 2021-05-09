@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { Text, Input, Button } from 'react-native-elements';
 import Spacer from '../../components/Spacer'
 
@@ -34,9 +34,10 @@ export class Signup extends Component {
 
     render() {
         return (
+            <View style={styles.container}>
             <View>
                 <Spacer>
-                <Text h4>Signup for a Hookt Account</Text>
+                <Text h4>Signup for an Account</Text>
                 </Spacer>
                 <Spacer>
                     <Input
@@ -48,6 +49,8 @@ export class Signup extends Component {
                     <Input
                         placeholder="email"
                         onChangeText={(email) => this.setState({ email })}
+                        autoCapitalize='none'
+                        autoCorrect='none'
                     />
                 </Spacer>
                 <Spacer>
@@ -55,6 +58,8 @@ export class Signup extends Component {
                         placeholder="password"
                         secureTextEntry={true}
                         onChangeText={(password) => this.setState({ password })}
+                        autoCapitalize='none'
+                        autoCorrect='none'
                     />
                 </Spacer>
                 <Spacer>
@@ -64,7 +69,19 @@ export class Signup extends Component {
                     />
                 </Spacer>
             </View>
+            </View>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        alignItems: "center",
+        flex: 1,
+        height: '100%',
+        // justifyContent: 'center',
+        marginBottom: 200
+    },
+  });
+
 export default Signup

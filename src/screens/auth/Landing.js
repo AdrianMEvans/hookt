@@ -22,10 +22,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: '80%', 
     height: '35%', 
-    backgroundColor: '#ccc',
-    borderRadius: 20,
-    shadowOffset: {width: 5,height: 5},
-    shadowOpacity: 0.5,
-    shadowRadius: 5
+    backgroundColor: '#eee',
+    borderRadius: 0,
+    // shadowOffset: {width: 5,height: 5},
+    // shadowOpacity: 0.5,
+    // shadowRadius: 5
   },
 });
