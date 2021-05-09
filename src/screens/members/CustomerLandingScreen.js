@@ -8,21 +8,18 @@ import Spacer from '../../components/Spacer'
 export default function Landing({ navigation }) {
   return (
     <View style={styles.container}>
-      <Text h4>
-        Welcome to Hookt
-      </Text>
       <View style={styles.buttonContainer}>
         <Spacer>
         <Button 
           style={styles.button}
-          title="Signup"
-          onPress={() => navigation.navigate("Signup")} />
+          title="Create Card"
+          onPress={() => navigation.navigate("CreateLoyaltyCard")} />
           </Spacer>
           <Spacer>
         <Button 
           style={styles.button}
-          title="Login"
-          onPress={() => navigation.navigate("Login")} />
+          title="Scan Card"
+          onPress={() => navigation.navigate("ScanCard")} />
           </Spacer>
           </View>
       </View>
