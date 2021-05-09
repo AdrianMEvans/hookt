@@ -1,31 +1,36 @@
 import React from 'react'
-import { Text, View, Button, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import { Text, Button } from 'react-native-elements';
+
+import Spacer from '../../components/Spacer'
 
 export default function Landing({ navigation }) {
   return (
-    <View style={{ height: '100%', alignItems: "center", justifyContent: "center" }}>
-      <View style={styles.container}>
+    <View style={styles.container}>
+        <Spacer>
         <Button 
+          style={styles.button}
           title="Signup"
           onPress={() => navigation.navigate("Signup")} />
-        <Button
+          </Spacer>
+          <Spacer>
+        <Button 
+          style={styles.button}
           title="Login"
           onPress={() => navigation.navigate("Login")} />
+          </Spacer>
       </View>
-    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: 'row',
+    flex: 2,
     alignItems: "center",
     justifyContent: "center",
-    width: '80%', 
-    height: '35%', 
-    backgroundColor: 'white',
-    borderRadius: 10,
-    // shadowOffset: {width: 5,height: 5},
-    // shadowOpacity: 0.5,
-    // shadowRadius: 5
+    width: '100%',
+  },
+  button: {
   },
 });
