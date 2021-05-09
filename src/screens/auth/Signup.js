@@ -3,7 +3,7 @@ import { View, Button, TextInput } from 'react-native'
 
 import firebase from 'firebase'
 
-export class Register extends Component {
+export class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -48,10 +48,10 @@ export class Register extends Component {
                 />
                 <Button
                     onPress={() => this.onSignUp()}
-                    title="Sign Up"
+                    title="Signup"
                 />
             </View>
         )
     }
 }
-export default Register
+export default Signup

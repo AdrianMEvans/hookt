@@ -15,15 +15,20 @@ const firebaseConfig = {
   measurementId: "G-45DYE0PX9F"
 };
 
-// if (firebase.apps.length === 0) {
+if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig)
-// }
+}
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createAppContainer,
+  createStackNavigator,
+  createBottomTabNavigator,
+  createSwitchNavigator
+} from '@react-navigation/stack';
 
 import LandingScreen from './src/screens/auth/Landing'
-import RegisterScreen from './src/screens/auth/Register'
+import SignupScreen from './src/screens/auth/Signup'
 import LoginScreen from './src/screens/auth/Login'
 
 const Stack = createStackNavigator();
@@ -71,7 +76,7 @@ export class App extends Component {
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Landing">
             <Stack.Screen name="Landing" component={LandingScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="Signup" component={SignupScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
           </Stack.Navigator>
         </NavigationContainer>
