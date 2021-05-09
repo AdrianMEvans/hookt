@@ -50,7 +50,7 @@ export class Signup extends Component {
                         placeholder="email"
                         onChangeText={(email) => this.setState({ email })}
                         autoCapitalize='none'
-                        autoCorrect='none'
+                        autoCorrect={false}
                     />
                 </Spacer>
                 <Spacer>
@@ -59,7 +59,7 @@ export class Signup extends Component {
                         secureTextEntry={true}
                         onChangeText={(password) => this.setState({ password })}
                         autoCapitalize='none'
-                        autoCorrect='none'
+                        autoCorrect={false}
                     />
                 </Spacer>
                 <Spacer>

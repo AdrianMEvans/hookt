@@ -1,7 +1,10 @@
+import { Text, Button } from 'react-native-elements';
 import { StatusBar } from 'expo-status-bar';
 import React, { Component, useState } from 'react';
 
-import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+
+
 import CreateLoyaltyCard from "./src/screens/CreateLoyaltyCard";
 import firebase from 'firebase'
 
