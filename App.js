@@ -5,7 +5,11 @@ import React, { Component, useState } from 'react';
 import { View, StyleSheet } from 'react-native'
 
 
-import CreateLoyaltyCard from "./src/screens/CreateLoyaltyCard";
+import CreateLoyaltyCard from "./src/screens/members/CreateLoyaltyCardScreen";
+import CustomerLanding from "./src/screens/members/CustomerLandingScreen";
+import ScanCard from "./src/screens/members/ScanCardScreen";
+
+
 import firebase from 'firebase'
 
 const firebaseConfig = {
@@ -86,18 +90,14 @@ export class App extends Component {
       );
     }
     return (
-      <View style={{ height: '100%', alignItems: "center", justifyContent: "center" }}>
-        <CreateLoyaltyCard user={user}/>
-        <Button
-          title="Create Loylty Card2"
-          onPress={() => onLogout()}
-        />
-        <Button
-          title="Logout2"
-          onPress={() => onLogout()}
-        />
-      </View>
-    )
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="CustomerLanding">
+            <Stack.Screen name="Landing" component={CustomerLanding} options={{ headerShown: false }} />
+            <Stack.Screen name="CreateLoyaltyCard" component={CreateLoyaltyCard} />
+            <Stack.Screen name="ScanCard" component={ScanCard} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      )
   }
 }
 

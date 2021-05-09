@@ -4,9 +4,14 @@ import { Text, Button } from 'react-native-elements';
 
 import Spacer from '../../components/Spacer'
 
+
 export default function Landing({ navigation }) {
   return (
     <View style={styles.container}>
+      <Text h4>
+        Welcome to Hookt
+      </Text>
+      <View style={styles.buttonContainer}>
         <Spacer>
         <Button 
           style={styles.button}
@@ -19,18 +24,19 @@ export default function Landing({ navigation }) {
           title="Login"
           onPress={() => navigation.navigate("Login")} />
           </Spacer>
+          </View>
       </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
     flex: 2,
     alignItems: "center",
     justifyContent: "center",
     width: '100%',
   },
-  button: {
+  buttonContainer: {
+    flexDirection: 'row',
   },
 });

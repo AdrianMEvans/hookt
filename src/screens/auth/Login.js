@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Image } from 'react-native'
 import { Text, Input, Button } from 'react-native-elements';
 import Spacer from '../../components/Spacer'
-
 
 import firebase from 'firebase'
 
