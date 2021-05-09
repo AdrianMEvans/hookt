@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { View, Button, TextInput } from 'react-native'
+import { View } from 'react-native'
+import { Text, Input, Button } from 'react-native-elements';
+import Spacer from '../../components/Spacer'
 
 import firebase from 'firebase'
 
@@ -33,23 +35,34 @@ export class Signup extends Component {
     render() {
         return (
             <View>
-                <TextInput
-                    placeholder="name"
-                    onChangeText={(name) => this.setState({ name })}
-                />
-                <TextInput
-                    placeholder="email"
-                    onChangeText={(email) => this.setState({ email })}
-                />
-                <TextInput
-                    placeholder="password"
-                    secureTextEntry={true}
-                    onChangeText={(password) => this.setState({ password })}
-                />
-                <Button
-                    onPress={() => this.onSignUp()}
-                    title="Signup"
-                />
+                <Spacer>
+                <Text h4>Signup for a Hookt Account</Text>
+                </Spacer>
+                <Spacer>
+                    <Input
+                        placeholder="name"
+                        onChangeText={(name) => this.setState({ name })}
+                    />
+                </Spacer>
+                <Spacer>
+                    <Input
+                        placeholder="email"
+                        onChangeText={(email) => this.setState({ email })}
+                    />
+                </Spacer>
+                <Spacer>
+                    <Input
+                        placeholder="password"
+                        secureTextEntry={true}
+                        onChangeText={(password) => this.setState({ password })}
+                    />
+                </Spacer>
+                <Spacer>
+                    <Button
+                        onPress={() => this.onSignUp()}
+                        title="Signup"
+                    />
+                </Spacer>
             </View>
         )
     }

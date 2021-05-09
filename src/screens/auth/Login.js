@@ -33,23 +33,26 @@ export class Login extends Component {
         return (
             <View>
                 <Spacer>
-                <Input
-                    placeholder="email"
-                    onChangeText={(email) => this.setState({ email })}
-                />
+                <Text h4>Login to your Account</Text>
                 </Spacer>
                 <Spacer>
-                <Input
-                    placeholder="password"
-                    secureTextEntry={true}
-                    onChangeText={(password) => this.setState({ password })}
-                />
+                    <Input
+                        placeholder="email"
+                        onChangeText={(email) => this.setState({ email })}
+                    />
                 </Spacer>
                 <Spacer>
-                <Button
-                    onPress={() => this.onSignUp()}
-                    title="Login"
-                />
+                    <Input
+                        placeholder="password"
+                        secureTextEntry={true}
+                        onChangeText={(password) => this.setState({ password })}
+                    />
+                </Spacer>
+                <Spacer>
+                    <Button
+                        onPress={() => this.onSignUp()}
+                        title="Login"
+                    />
                 </Spacer>
             </View>
         )
