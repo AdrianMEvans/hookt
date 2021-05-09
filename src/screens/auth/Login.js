@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { View, Button, TextInput } from 'react-native'
+import { View } from 'react-native'
+import { Text, Input, Button } from 'react-native-elements';
 import Spacer from '../../components/Spacer'
 
 
@@ -32,13 +33,13 @@ export class Login extends Component {
         return (
             <View>
                 <Spacer>
-                <TextInput
+                <Input
                     placeholder="email"
                     onChangeText={(email) => this.setState({ email })}
                 />
                 </Spacer>
                 <Spacer>
-                <TextInput
+                <Input
                     placeholder="password"
                     secureTextEntry={true}
                     onChangeText={(password) => this.setState({ password })}
