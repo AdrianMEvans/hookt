@@ -10,6 +10,7 @@ export default function CreateLoyaltyCard(props) {
     const input = {
       name: name,
       email: email,
+      loyaltyPoints: loyaltyPoints,
       businessId: props.user.uid
     }
     fetch('http://localhost:3001/api/createLoyaltyCard',{

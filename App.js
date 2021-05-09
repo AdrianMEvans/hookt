@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component, useState } from 'react';
 
 import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
-import CreateLoyaltyCard from "./components/CreateLoyaltyCard";
+import CreateLoyaltyCard from "./screens/CreateLoyaltyCard";
 import firebase from 'firebase'
 
 const firebaseConfig = {
@@ -22,9 +22,9 @@ const firebaseConfig = {
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import LandingScreen from './components/auth/Landing'
-import RegisterScreen from './components/auth/Register'
-import LoginScreen from './components/auth/Login'
+import LandingScreen from './screens/auth/Landing'
+import RegisterScreen from './screens/auth/Register'
+import LoginScreen from './screens/auth/Login'
 
 const Stack = createStackNavigator();
 
