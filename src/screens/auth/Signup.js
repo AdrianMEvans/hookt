@@ -36,63 +36,63 @@ export class Signup extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-            <View>
-                <Logo />
-                <Spacer>
-                <Text h4>Signup for an Account</Text>
-                </Spacer>
-                <Spacer>
-                    <Input
-                        placeholder="name"
-                        onChangeText={(name) => this.setState({ name })}
-                    />
-                </Spacer>
-                <Spacer>
-                    <Input
-                        placeholder="email"
-                        onChangeText={(email) => this.setState({ email })}
-                        autoCapitalize='none'
-                        autoCorrect={false}
-                    />
-                </Spacer>
-                <Spacer>
-                    <Input
-                        placeholder="password"
-                        secureTextEntry={true}
-                        onChangeText={(password) => this.setState({ password })}
-                        autoCapitalize='none'
-                        autoCorrect={false}
-                    />
-                </Spacer>
-                <Spacer>
-                    <ThemeProvider theme={theme}>
-                    <Button
-                        onPress={() => this.onSignUp()}
-                        title="Signup"
-                    />
-                    </ThemeProvider>
-                </Spacer>
-            </View>
-            </View>
+            <ThemeProvider theme={theme}>
+                <View style={styles.container}>
+                    <View>
+                        <Logo />
+                        <Spacer>
+                            <Text h4>Signup for an Account</Text>
+                        </Spacer>
+                        <Spacer>
+                            <Input
+                                placeholder="name"
+                                onChangeText={(name) => this.setState({ name })}
+                            />
+                        </Spacer>
+                        <Spacer>
+                            <Input
+                                placeholder="email"
+                                onChangeText={(email) => this.setState({ email })}
+                                autoCapitalize='none'
+                                autoCorrect={false}
+                            />
+                        </Spacer>
+                        <Spacer>
+                            <Input
+                                placeholder="password"
+                                secureTextEntry={true}
+                                onChangeText={(password) => this.setState({ password })}
+                                autoCapitalize='none'
+                                autoCorrect={false}
+                            />
+                        </Spacer>
+                        <Spacer>
+                            <Button buttonStyle={[{ backgroundColor: "#248C9C" }]}
+                                onPress={() => this.onSignUp()}
+                                title="Signup"
+                            />
+                        </Spacer>
+                    </View>
+                </View>
+            </ThemeProvider>
         )
     }
 }
 
 const theme = {
     Button: {
-      raised: true,
+        raised: true,
     },
-  };
+};
 
 const styles = StyleSheet.create({
     container: {
         alignItems: "center",
         flex: 1,
         height: '100%',
-        // justifyContent: 'center',
-        marginBottom: 200
+        marginBottom: 200,
+        backgroundColor: "#F2F2EA",
     },
-  });
+});
 
 export default Signup

@@ -32,57 +32,56 @@ export class Login extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <View>
-                    <Logo />
-                <Spacer>
-                <Text h4>Login to your Account</Text>
-                </Spacer>
-                <Spacer>
-                    <Input
-                        placeholder="email"
-                        onChangeText={(email) => this.setState({ email })}
-                        autoCapitalize='none'
-                        autoCorrect={false}
-                    />
-                </Spacer>
-                <Spacer>
-                    <Input
-                        placeholder="password"
-                        secureTextEntry={true}
-                        onChangeText={(password) => this.setState({ password })}
-                        autoCapitalize='none'
-                        autoCorrect={false}
-                    />
-                </Spacer>
-                <Spacer>
-                    <ThemeProvider theme={theme}>
-                    <Button
-                        onPress={() => this.onSignUp()}
-                        title="Login"
-                    />
-                    </ThemeProvider>
-                </Spacer>
+            <ThemeProvider theme={theme}>
+                <View style={styles.container}>
+                    <View>
+                        <Logo />
+                        <Spacer>
+                            <Text h4>Login to your Account</Text>
+                        </Spacer>
+                        <Spacer>
+                            <Input
+                                placeholder="email"
+                                onChangeText={(email) => this.setState({ email })}
+                                autoCapitalize='none'
+                                autoCorrect={false}
+                            />
+                        </Spacer>
+                        <Spacer>
+                            <Input
+                                placeholder="password"
+                                secureTextEntry={true}
+                                onChangeText={(password) => this.setState({ password })}
+                                autoCapitalize='none'
+                                autoCorrect={false}
+                            />
+                        </Spacer>
+                        <Spacer>
+                            <Button buttonStyle={[{ backgroundColor: "#248C9C" }]}
+                                onPress={() => this.onSignUp()}
+                                title="Login"
+                            />
+                        </Spacer>
+                    </View>
                 </View>
-            </View>
+            </ThemeProvider>
         )
     }
 }
 
 const theme = {
     Button: {
-      raised: true,
+        raised: true,
     },
-  };
+};
 
 const styles = StyleSheet.create({
     container: {
-      alignItems: "center",
-      flex:1,
-      height: '60%',
-    //   justifyContent: 'center',
-    //   marginBottom: 350
+        alignItems: "center",
+        flex: 1,
+        height: '60%',
+        backgroundColor: "#F2F2EA",
     },
-  });
+});
 
 export default Login

@@ -55,7 +55,7 @@ export default function CreateLoyaltyCard(props) {
         />
     </Spacer>
         <Spacer>
-          <Button
+          <Button 
             onPress={() => createUser()}
             title="Create Loylty Card"
           />
@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex:1,
     height: '60%',
-  //   justifyContent: 'center',
-  //   marginBottom: 350
+    backgroundColor: "#F2F2EA",
   },
 });

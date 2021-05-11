@@ -9,39 +9,36 @@ import Logo from '../../components/Logo'
 
 export default function Landing({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Spacer>
-      <Logo />
-      </Spacer>
-      <Text h4>
-        Welcome
+    <ThemeProvider theme={theme}>
+      <View style={styles.container}>
+        <Spacer>
+          <Logo />
+        </Spacer>
+        <Text h4>
+          Welcome
       </Text>
-     
-      <Spacer>
-        <Text h5>
-          If you are a first time user please go to the signup. {`\n`}
+        <Spacer>
+          <Text h5>
+            If you are a first time user please go to the signup. {`\n`}
         If you are an existing user please Login below.
       </Text>
-      </Spacer>
-      <View style={styles.buttonContainer}>
-        <Spacer>
-        <ThemeProvider theme={theme}>
-          <Button buttonStyle={[{ backgroundColor: "#248C9C" }]}
-            style={styles.button}
-            title="Signup"
-            onPress={() => navigation.navigate("Signup")} />
-            </ThemeProvider>
         </Spacer>
-        <Spacer>
-        <ThemeProvider theme={theme}>
-          <Button buttonStyle={[{ backgroundColor: "#248C9C" }]}
-            style={styles.button}
-            title="Login"
-            onPress={() => navigation.navigate("Login")} />
-            </ThemeProvider>
-        </Spacer>
+        <View style={styles.buttonContainer}>
+          <Spacer>
+              <Button buttonStyle={[{ backgroundColor: "#248C9C" }]}
+                style={styles.button}
+                title="Signup"
+                onPress={() => navigation.navigate("Signup")} />
+          </Spacer>
+          <Spacer>
+            <Button buttonStyle={[{ backgroundColor: "#248C9C" }]}
+              style={styles.button}
+              title="Login"
+              onPress={() => navigation.navigate("Login")} />
+          </Spacer>
+        </View>
       </View>
-    </View>
+    </ThemeProvider>
   )
 }
 
