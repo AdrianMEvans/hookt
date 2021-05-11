@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Text, Input, Button } from 'react-native-elements';
+import { Text, Input, Button, ThemeProvider } from 'react-native-elements';
 
 import Spacer from '../../components/Spacer'
-import Logo from '../../components/Logo'
+import Logo from '../../components/LogoWhite'
 
 export default function CreateLoyaltyCard(props) {
   const [name, setName] = useState();
@@ -32,38 +32,60 @@ export default function CreateLoyaltyCard(props) {
   }
 
   return (
-    <View style={styles.container}>
-      <View>
-        <Logo />
-        <Spacer>
-          <Text h4>Create Your Loyalty Card</Text>
-        </Spacer>
-        <Spacer>
-          <Input
-          placeholder='Enter your e-mail here'
-          onChange={(e) => { setEmail(e.target.value) }}
-          autoCapitalize='none'
-          autoCorrect={false}
-        />
-    </Spacer>
-        <Spacer>
-          <Input
-          placeholder='Enter your name here'
-          secureTextEntry={true}
-          onChange={(e) => { setName(e.target.value) }}
-          autoCorrect={false}
-        />
-    </Spacer>
-        <Spacer>
-          <Button 
-            onPress={() => createUser()}
-            title="Create Loylty Card"
-          />
-        </Spacer>
+    <ThemeProvider theme={theme}>
+      <View style={styles.container}>
+        <View>
+          <Spacer>
+            <Logo />
+          </Spacer>
+          <Spacer>
+            <Text h3>Enter your details to receive your QR Code</Text>
+          </Spacer>
+          <Spacer>
+            <Input
+              placeholder='Enter your e-mail here'
+              onChange={(e) => { setEmail(e.target.value) }}
+              autoCapitalize='none'
+              autoCorrect={false}
+            />
+          </Spacer>
+          <Spacer>
+            <Input
+              placeholder='Enter your name here'
+              secureTextEntry={true}
+              onChange={(e) => { setName(e.target.value) }}
+              autoCorrect={false}
+            />
+          </Spacer>
+          <Spacer>
+            <Button buttonStyle={[{ backgroundColor: "#F4B400" }]}
+              onPress={() => createUser()}
+              title="Create Loylty Card"
+            />
+          </Spacer>
+        </View>
       </View>
-    </View>
+    </ThemeProvider>
   )
 }
+
+const theme = {
+  Text: {
+    style: {
+      fontSize: 20,
+      color: "white",
+    },
+    h4Style: {
+      color: "white",
+    },
+    h2Style: {
+      color: "blue",
+    },
+    h3Style: {
+      fontSize: 15,
+    },
+  },
+};
 
 const styles = StyleSheet.create({
   label: {
@@ -83,9 +105,11 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
   container: {
+    flex: 1,
+    alignSelf: "center",
     alignItems: "center",
-    flex:1,
-    height: '60%',
-    backgroundColor: "#F2F2EA",
+    justifyContent: "center",
+    width: '375px',
+    backgroundColor: "#244464",
   },
 });

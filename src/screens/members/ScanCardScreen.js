@@ -38,8 +38,11 @@ export default function ScanCard() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
-    flexDirection: 'column',
-    justifyContent: 'center',
+    flex: 1,
+    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "center",
+    width: '375px',
+    backgroundColor: "#244464",
   },
 });

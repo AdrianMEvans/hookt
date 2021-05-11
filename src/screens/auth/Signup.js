@@ -83,16 +83,34 @@ const theme = {
     Button: {
         raised: true,
     },
+    Text: {
+        style: {
+          fontSize: 15,
+          color: "#244464",
+        },
+        h1Style: {
+          color: "#244464",
+          fontSize: 30,
+        },
+        h2Style: {
+          color: "#244464",
+          fontSize: 25,
+        },
+        h3Style: {
+          fontSize: 20,
+        },
+      },
 };
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: "center",
         flex: 1,
-        height: '100%',
-        marginBottom: 200,
+        alignSelf: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        width: '375px',
         backgroundColor: "#F2F2EA",
-    },
+      },
 });
 
 export default Signup

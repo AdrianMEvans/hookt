@@ -18,18 +18,22 @@ export default function Landing({ navigation }) {
           Welcome
       </Text>
         <Spacer>
-          <Text h5>
-            If you are a first time user please go to the signup. {`\n`}
-        If you are an existing user please Login below.
+          <Text>
+            If you are a first time user please Signup.
       </Text>
         </Spacer>
-        <View style={styles.buttonContainer}>
+        <View>
           <Spacer>
               <Button buttonStyle={[{ backgroundColor: "#248C9C" }]}
                 style={styles.button}
                 title="Signup"
                 onPress={() => navigation.navigate("Signup")} />
           </Spacer>
+          <Spacer>
+          <Text>
+        If you are an existing user please Login below.
+      </Text>
+        </Spacer>
           <Spacer>
             <Button buttonStyle={[{ backgroundColor: "#248C9C" }]}
               style={styles.button}
@@ -46,17 +50,34 @@ const theme = {
   Button: {
     raised: true,
   },
+  Text: {
+    style: {
+      fontSize: 15,
+      color: "#244464",
+    },
+    h1Style: {
+      color: "#244464",
+      fontSize: 30,
+    },
+    h2Style: {
+      color: "#244464",
+      fontSize: 25,
+    },
+    h3Style: {
+      fontSize: 20,
+    },
+  },
 };
+
+
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
-    alignItems: "center",
-    justifyContent: "center",
-    width: '100%',
-    backgroundColor: "#F2F2EA",
-  },
-  buttonContainer: {
-    flexDirection: 'row',
+      flex: 1,
+      alignSelf: "center",
+      alignItems: "center",
+      justifyContent: "center",
+      width: '375px',
+      backgroundColor: "#F2F2EA",
   },
 });
