@@ -1,8 +1,7 @@
-import { Text, Button } from 'react-native-elements';
-import { StatusBar } from 'expo-status-bar';
-import React, { Component, useState } from 'react';
+import { Text } from 'react-native-elements';
+import React, { Component } from 'react';
 
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native';
 
 
 import CreateLoyaltyCard from "./src/screens/members/CreateLoyaltyCardScreen";
@@ -28,10 +27,7 @@ if (firebase.apps.length === 0) {
 
 import { NavigationContainer } from '@react-navigation/native';
 import {
-  createAppContainer,
   createStackNavigator,
-  createBottomTabNavigator,
-  createSwitchNavigator
 } from '@react-navigation/stack';
 
 import LandingScreen from './src/screens/auth/Landing'
@@ -92,8 +88,12 @@ export class App extends Component {
     return (
         <NavigationContainer>
           <Stack.Navigator initialRouteName="CustomerLanding">
-            <Stack.Screen name="Landing" component={CustomerLanding} options={{ headerShown: false }} />
-            <Stack.Screen name="CreateLoyaltyCard" component={CreateLoyaltyCard} />
+            <Stack.Screen name="Landing" options={{ headerShown: false }}>
+              {props => <CustomerLanding {...props} onLogout={onLogout} />}
+            </Stack.Screen>
+            <Stack.Screen name="CreateLoyaltyCard">
+              {props => <CreateLoyaltyCard {...props} user={user} />}
+            </Stack.Screen>
             <Stack.Screen name="ScanCard" component={ScanCard} />
           </Stack.Navigator>
         </NavigationContainer>

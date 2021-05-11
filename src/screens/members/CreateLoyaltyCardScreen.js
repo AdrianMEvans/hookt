@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import { View, Text, Button, StyleSheet, TextInput } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import { Text, Input, Button } from 'react-native-elements';
 
+import Spacer from '../../components/Spacer'
+import Logo from '../../components/Logo'
 
 export default function CreateLoyaltyCard(props) {
   const [name, setName] = useState();
@@ -10,10 +13,9 @@ export default function CreateLoyaltyCard(props) {
     const input = {
       name: name,
       email: email,
-      loyaltyPoints: loyaltyPoints,
       businessId: props.user.uid
     }
-    fetch('http://localhost:3001/api/createLoyaltyCard',{
+    fetch('http://localhost:3001/api/createLoyaltyCard', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -21,27 +23,46 @@ export default function CreateLoyaltyCard(props) {
       body: JSON.stringify(input),
     })
       .then(res => res.json())
-      .then(result => setData(result.rows))
-      .then(response => console.log('Success:', JSON.stringify(response)))
+      .then(result => {
+        setData(result.rows);
+        navigation.navigate("CustomerLandingScreen")
+      })
+      // .then(response => console.log('Success:', JSON.stringify(response)))
       .catch(err => console.log("error"))
   }
 
-  return <View style={styles.container}>
-    <Text style={styles.label}>Enter Your Name</Text>
-    <TextInput style={styles.textInput}
-      defaultValue="Type your name here"
-      onChange={(e) => { setName(e.target.value) }}
-    />
-    <Text style={styles.label}>Enter your E-mail</Text>
-    <TextInput style={styles.textInput}
-      defaultValue="Type your E-mail here"
-      onChange={(e) => { setEmail(e.target.value) }}
-    />
-    <Button
-      title="Create Loylty Card"
-      onPress={() => createUser()}
-    />
-  </View>
+  return (
+    <View style={styles.container}>
+      <View>
+        <Logo />
+        <Spacer>
+          <Text h4>Create Your Loyalty Card</Text>
+        </Spacer>
+        <Spacer>
+          <Input
+          placeholder='Enter your e-mail here'
+          onChange={(e) => { setEmail(e.target.value) }}
+          autoCapitalize='none'
+          autoCorrect={false}
+        />
+    </Spacer>
+        <Spacer>
+          <Input
+          placeholder='Enter your name here'
+          secureTextEntry={true}
+          onChange={(e) => { setName(e.target.value) }}
+          autoCorrect={false}
+        />
+    </Spacer>
+        <Spacer>
+          <Button
+            onPress={() => createUser()}
+            title="Create Loylty Card"
+          />
+        </Spacer>
+      </View>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
@@ -63,12 +84,9 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: "center",
-    justifyContent: "center",
-    width: '80%',
-    backgroundColor: '#ccc',
-    borderRadius: 20,
-    shadowOffset: { width: 5, height: 5 },
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
+    flex:1,
+    height: '60%',
+  //   justifyContent: 'center',
+  //   marginBottom: 350
   },
 });

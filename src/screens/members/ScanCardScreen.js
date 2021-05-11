@@ -38,7 +38,7 @@ export default function ScanCard() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'column',
     justifyContent: 'center',
   },

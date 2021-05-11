@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Text, Input, Button } from 'react-native-elements';
+
 import Spacer from '../../components/Spacer'
+import Logo from '../../components/Logo'
 
 import firebase from 'firebase'
 
@@ -36,6 +38,7 @@ export class Signup extends Component {
         return (
             <View style={styles.container}>
             <View>
+                <Logo />
                 <Spacer>
                 <Text h4>Signup for an Account</Text>
                 </Spacer>
