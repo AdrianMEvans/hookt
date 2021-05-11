@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     alignItems: "center",
     justifyContent: "center",
-    width: "375",
+    width: 375,
     backgroundColor: "#244464",
   },
 });

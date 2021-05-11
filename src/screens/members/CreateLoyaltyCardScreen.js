@@ -15,7 +15,7 @@ export default function CreateLoyaltyCard(props) {
       email: email,
       businessId: props.user.uid
     }
-    fetch('http://localhost:3001/api/createLoyaltyCard', {
+    fetch('http://localhost:3001/api/createLoyaltyCard',{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -23,11 +23,8 @@ export default function CreateLoyaltyCard(props) {
       body: JSON.stringify(input),
     })
       .then(res => res.json())
-      .then(result => {
-        setData(result.rows);
-        navigation.navigate("CustomerLandingScreen")
-      })
-      // .then(response => console.log('Success:', JSON.stringify(response)))
+      .then(result => setData(result.rows))
+      .then(response => console.log('Success:', JSON.stringify(response)))
       .catch(err => console.log("error"))
   }
 
@@ -60,7 +57,7 @@ export default function CreateLoyaltyCard(props) {
           <Spacer>
             <Button buttonStyle={[{ backgroundColor: "#F4B400" }]}
               onPress={() => createUser()}
-              title="Create Loylty Card"
+              title="Create Loyalty Card"
             />
           </Spacer>
         </View>
@@ -109,7 +106,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     alignItems: "center",
     justifyContent: "center",
-    width: "375",
+    width: 375,
     backgroundColor: "#244464",
   },
 });
