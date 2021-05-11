@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         alignItems: "center",
         justifyContent: "center",
-        width: '375px',
+        width: '375pt',
         backgroundColor: "#F2F2EA",
       },
 });
