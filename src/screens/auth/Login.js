@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Image } from 'react-native'
-import { Text, Input, Button } from 'react-native-elements';
+import { View, StyleSheet } from 'react-native'
+import { Text, Input, Button, ThemeProvider } from 'react-native-elements';
 
 import Spacer from '../../components/Spacer'
 import Logo from '../../components/Logo'
@@ -56,16 +56,24 @@ export class Login extends Component {
                     />
                 </Spacer>
                 <Spacer>
+                    <ThemeProvider theme={theme}>
                     <Button
                         onPress={() => this.onSignUp()}
                         title="Login"
                     />
+                    </ThemeProvider>
                 </Spacer>
                 </View>
             </View>
         )
     }
 }
+
+const theme = {
+    Button: {
+      raised: true,
+    },
+  };
 
 const styles = StyleSheet.create({
     container: {

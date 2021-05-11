@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, Image } from 'react-native'
-import { Text, Button } from 'react-native-elements';
+import { Text, Button, ThemeProvider } from 'react-native-elements';
 
 import Spacer from '../../components/Spacer'
 import Logo from '../../components/Logo'
@@ -25,21 +25,31 @@ export default function Landing({ navigation }) {
       </Spacer>
       <View style={styles.buttonContainer}>
         <Spacer>
-          <Button
+        <ThemeProvider theme={theme}>
+          <Button buttonStyle={[{ backgroundColor: "#248C9C" }]}
             style={styles.button}
             title="Signup"
             onPress={() => navigation.navigate("Signup")} />
+            </ThemeProvider>
         </Spacer>
         <Spacer>
-          <Button
+        <ThemeProvider theme={theme}>
+          <Button buttonStyle={[{ backgroundColor: "#248C9C" }]}
             style={styles.button}
             title="Login"
             onPress={() => navigation.navigate("Login")} />
+            </ThemeProvider>
         </Spacer>
       </View>
     </View>
   )
 }
+
+const theme = {
+  Button: {
+    raised: true,
+  },
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -47,6 +57,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: '100%',
+    backgroundColor: "#F2F2EA",
   },
   buttonContainer: {
     flexDirection: 'row',
