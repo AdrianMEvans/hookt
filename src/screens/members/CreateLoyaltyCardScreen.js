@@ -49,7 +49,7 @@ export default function CreateLoyaltyCard(props) {
           <Spacer>
             <Input
               placeholder='Enter your name here'
-              secureTextEntry={true}
+              secureTextEntry={false}
               onChange={(e) => { setName(e.target.value) }}
               autoCorrect={false}
             />
