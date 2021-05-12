@@ -43,6 +43,7 @@ export class Login extends Component {
                             <Input
                                 placeholder="email"
                                 onChangeText={(email) => this.setState({ email })}
+                                style={{ color: '#244464' }}
                                 autoCapitalize='none'
                                 autoCorrect={false}
                             />
@@ -52,6 +53,7 @@ export class Login extends Component {
                                 placeholder="password"
                                 secureTextEntry={true}
                                 onChangeText={(password) => this.setState({ password })}
+                                style={{ color: '#244464' }}
                                 autoCapitalize='none'
                                 autoCorrect={false}
                             />

@@ -47,12 +47,14 @@ export class Signup extends Component {
                             <Input
                                 placeholder="name"
                                 onChangeText={(name) => this.setState({ name })}
+                                style={{ color: '#244464' }}
                             />
                         </Spacer>
                         <Spacer>
                             <Input
                                 placeholder="email"
                                 onChangeText={(email) => this.setState({ email })}
+                                style={{ color: '#244464' }}
                                 autoCapitalize='none'
                                 autoCorrect={false}
                             />
@@ -62,6 +64,7 @@ export class Signup extends Component {
                                 placeholder="password"
                                 secureTextEntry={true}
                                 onChangeText={(password) => this.setState({ password })}
+                                style={{ color: '#244464' }}
                                 autoCapitalize='none'
                                 autoCorrect={false}
                             />

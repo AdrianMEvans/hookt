@@ -6,8 +6,8 @@ import Spacer from '../../components/Spacer'
 import Logo from '../../components/LogoWhite'
 
 export default function CreateLoyaltyCard(props) {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
   const createUser = () => {
     const input = {
@@ -15,6 +15,7 @@ export default function CreateLoyaltyCard(props) {
       email: email,
       businessId: props.user.uid
     }
+    console.log({input});
     fetch('http://localhost:3001/api/createLoyaltyCard',{
       method: 'POST',
       headers: {
@@ -28,6 +29,11 @@ export default function CreateLoyaltyCard(props) {
       .catch(err => console.log("error"))
   }
 
+  function handleInput (event){
+    console.log('event', event)
+    // console.log('event target', event.target.value)
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <View style={styles.container}>
@@ -39,18 +45,21 @@ export default function CreateLoyaltyCard(props) {
             <Text h3>Enter your details to receive your QR Code</Text>
           </Spacer>
           <Spacer>
-            <Input
+            <Input 
               placeholder='Enter your e-mail here'
-              onChange={(e) => { setEmail(e.target.value) }}
+              onChangeText={(text) => setEmail(text)}
+              style={{ color: 'white' }}
               autoCapitalize='none'
+              value={email}
               autoCorrect={false}
             />
           </Spacer>
           <Spacer>
             <Input
               placeholder='Enter your name here'
-              secureTextEntry={false}
-              onChange={(e) => { setName(e.target.value) }}
+              onChangeText={(text) => { setName(text) }}
+              value={name}
+              style={{ color: 'white' }}
               autoCorrect={false}
             />
           </Spacer>
